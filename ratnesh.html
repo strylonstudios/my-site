@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Member Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #9b51e0;
+            --secondary-color: #00aaff;
+            --background-color: #1a1a1a;
+            --card-background: #2a2a2a;
+            --text-color: #f5f5f5;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-family: 'Rajdhani', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: var(--card-background);
+        }
+
+        .header img {
+            height: 50px;
+            margin-right: 15px;
+        }
+
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            width: 100%;
+        }
+
+        .profile-card {
+            background-color: var(--card-background);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+        }
+
+        .profile-card img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            border-radius: 20px;
+            margin-bottom: 15px;
+        }
+
+        .profile-card h2 {
+            color: var(--primary-color);
+        }
+
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 8px 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 15px;
+            background-color: var(--card-background);
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .footer img {
+            width: 100%;
+            max-width: 150px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <img src="images/logo.png" alt="Company Logo">
+        <h1>Strylon Studios</h1>
+    </div>
+
+    <div class="profile-container">
+        <div class="profile-card">
+            <img src="my-site\images_pp\ratnesh.jpg" alt="Team Member">
+            <h2 id="name"></h2>
+            <p><strong>Designation:</strong> <span id="designation"></span></p>
+            <p><strong>Bio:</strong> <span id="bio"></span></p>
+            <p><strong>Skills:</strong> <span id="skills"></span></p>
+            <p><strong>Projects:</strong> <span id="projects"></span></p>
+            <div class="contact-info">
+                <p><strong>Phone:</strong> <span id="phone"></span></p>
+                <p><strong>Email:</strong> <span id="email"></span></p>
+            </div>
+            <div class="social-links" id="social-links"></div>
+            <a href="index.html" class="back-button">Back to Team</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <img src="images/logo.png" alt="Company Logo">
+        <p>&copy; 2025 Strylon Studios. All rights reserved.</p>
+    </div>
+
+    <script>
+        const teamMember = {
+                "name": "Ratnesh",
+                "designation": "CEO and Founder",
+                "bio": "CEO and founder of Strylon Studios, specializing in game development and AR/VR. With expertise in Unity and C#, he has worked on multiple 3D and VR projects. He is passionate about creating interactive experiences and leading innovative tech-driven solutions.",
+                "skills": [
+                    "Unity & C# Development",
+                    "Virtual Reality (VR) & Augmented Reality (AR)",
+                    "Artificial Intelligence & NLP",
+                    "OpenXR & Oculus SDK",
+                    "Game Design & Development",
+                    "Speech-to-Text & Text-to-Speech Systems"
+                ],
+                "phone": "+91 7305328064",
+                "email": "hsratneshsci@gmail.com",
+                "social": {
+                    "LinkedIn": "#",
+                    "GitHub": "https://github.com/hsratneshsci",
+                    "Portfolio": "https://github.com/hsratneshsci",
+                    "Twitter": "#",
+                    "Instagram": "https://www.instagram.com/eihsen2612/",
+                    "Facebook": "#"
+                }
+            };
+
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("name").innerText = teamMember.name;
+            document.getElementById("designation").innerText = teamMember.designation;
+            document.getElementById("bio").innerText = teamMember.bio;
+            document.getElementById("skills").innerText = teamMember.skills;
+            document.getElementById("projects").innerText = teamMember.projects;
+            document.getElementById("phone").innerHTML = `<a href='tel:${teamMember.phone}'>${teamMember.phone}</a>`;
+            document.getElementById("email").innerHTML = `<a href='mailto:${teamMember.email}'>${teamMember.email}</a>`;
+
+            const socialLinks = document.getElementById("social-links");
+            Object.entries(teamMember.social).forEach(([platform, link]) => {
+                let anchor = document.createElement("a");
+                anchor.href = link;
+                anchor.target = "_blank";
+                anchor.innerText = platform;
+                socialLinks.appendChild(anchor);
+            });
+        });
+    </script>
+</body>
+
+</html>
