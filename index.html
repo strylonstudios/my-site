@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strylon Studios</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@600&display=swap');
+
+        body {
+            background-color: #2c2c2c;
+            color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            position: relative;
+            background: linear-gradient(45deg, #9a47e7, #52abd8);
+            padding: 50px 20px;
+            text-align: center;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 2em;
+            font-weight: 600;
+            text-transform: uppercase;
+            overflow: hidden;
+            letter-spacing: 2px;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 10%, rgba(0, 0, 0, 0) 70%);
+            animation: movingGlow 5s linear infinite;
+        }
+
+        @keyframes movingGlow {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        nav {
+            text-align: center;
+            padding: 10px;
+        }
+
+        nav a {
+            color: #f5f5f5;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        .section {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .projects,
+        .team,
+        .awards,
+        .faq {
+            background-color: #2a2a2a;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .project-container,
+        .team-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .project-card,
+        .team-card {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            width: 250px;
+            text-align: center;
+        }
+
+        .project-card img,
+        .team-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        footer {
+            background-color: #111;
+            color: #f5f5f5;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .footer-logo {
+            width: 100px;
+            display: block;
+            margin: 0 auto 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to Strylon Studios</h1>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#team">Team</a>
+        <a href="#awards">Awards</a>
+        <a href="#faq">FAQ</a>
+    </nav>
+
+    <section id="about" class="section">
+        <h2>About Us</h2>
+        <p>Strylon Studios is dedicated to innovative game development, AI-based animation, and immersive experiences.
+        </p>
+    </section>
+
+    <section id="projects" class="section projects">
+        <h2>Our Projects</h2>
+
+        <div>
+            <h3>Our Products</h3>
+            <div class="project-container">
+                <div class="project-card">
+                    <img src="ar_medical.jpg" alt="AR Medical">
+                    <p><strong>AR Medical</strong><br>An AR application for 9th-12th graders to explore medical
+                        concepts, including organs and bones.</p>
+                </div>
+                <div class="project-card">
+                    <img src="ar_kindergarten.jpg" alt="AR Kindergarten">
+                    <p><strong>AR Kindergarten</strong><br>An AR app designed for young learners to explore alphabets,
+                        animals, and plants in multiple languages.</p>
+                </div>
+                <div class="project-card">
+                    <img src="photobooth.jpg" alt="Photobooth">
+                    <p><strong>Photobooth</strong><br>Custom booth solutions for events and companies to create
+                        immersive photo experiences.</p>
+                </div>
+                <div class="project-card">
+                    <img src="into_the_void.jpg" alt="Into the Void">
+                    <p><strong>Into the Void</strong><br>A VR story-driven game that simulates an experience aboard an
+                        international space station.</p>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h3>Client Projects</h3>
+            <div class="project-container">
+                <div class="project-card">
+                    <img src="delphi_tvs.jpg" alt="Delphi TVS">
+                    <p><strong>Delphi TVS</strong><br>A VR training solution focused on engines and their parts for
+                        hands-on learning.</p>
+                </div>
+                <div class="project-card">
+                    <img src="yogam.jpg" alt="Yogam">
+                    <p><strong>Yogam</strong><br>An AI-powered project designed for vocal and speech therapy assistance.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="section team">
+        <h2>Meet Our Team</h2>
+        <div class="team-container">
+            <div class="team-card">
+                <img src="ratnesh_hs.jpg" alt="Ratnesh HS">
+                <p><strong>Ratnesh HS</strong><br>3D & VR Developer</p>
+            </div>
+            <div class="team-card">
+                <img src="harini_v.jpg" alt="Harini V">
+                <p><strong>Harini V</strong><br>VR Developer</p>
+            </div>
+            <div class="team-card">
+                <img src="krithik_ragav.jpg" alt="Krithik Ragav">
+                <p><strong>Krithik Ragav</strong><br>3D, VR & AI Developer</p>
+            </div>
+            <div class="team-card">
+                <img src="suhail_y.jpg" alt="Suhail Y">
+                <p><strong>Suhail Y</strong><br>VR Developer</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="awards" class="section awards">
+        <h2>Awards</h2>
+        <p>Winner of SIH 2024.</p>
+    </section>
+
+    <footer>
+        <img src="images\logo.png" alt="Strylon Studios Logo" class="footer-logo">
+        <p>&copy; 2025 Strylon Studios. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
