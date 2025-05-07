@@ -17,26 +17,26 @@
             --text-primary: var(--black);
             --text-secondary: #555555;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
             background-color: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.6;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         /* Header Styles */
         header {
             background-color: var(--black);
@@ -47,28 +47,29 @@
             z-index: 100;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-        
+
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .logo-container {
             display: flex;
             align-items: center;
         }
-        
+
         .company-logo {
-            margin-right: 15px;
             height: 60px;
+            margin-right: 15px;
         }
-        
+
         .company-logo img {
             height: 100%;
             width: auto;
+            object-fit: contain;
         }
-        
+
         .logo {
             font-size: 28px;
             font-weight: 700;
@@ -77,31 +78,31 @@
             display: flex;
             align-items: center;
         }
-        
+
         .logo span {
             color: var(--accent-secondary);
         }
-        
+
         nav ul {
             display: flex;
             list-style: none;
         }
-        
+
         nav ul li {
             margin-left: 25px;
         }
-        
+
         nav ul li a {
             color: white;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
         }
-        
+
         nav ul li a:hover {
             color: var(--blue);
         }
-        
+
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
@@ -109,35 +110,35 @@
             padding: 100px 0;
             text-align: center;
         }
-        
+
         .hero h1 {
             font-size: 48px;
             margin-bottom: 20px;
         }
-        
+
         .hero p {
             font-size: 20px;
             max-width: 800px;
             margin: 0 auto;
         }
-        
+
         /* Section Styles */
         section {
             padding: 80px 0;
         }
-        
+
         .section-title {
             text-align: center;
             margin-bottom: 60px;
         }
-        
+
         .section-title h2 {
             font-size: 36px;
             color: var(--black);
             position: relative;
             display: inline-block;
         }
-        
+
         .section-title h2::after {
             content: '';
             position: absolute;
@@ -147,29 +148,29 @@
             bottom: -10px;
             left: 25%;
         }
-        
+
         /* Projects Section */
         .projects {
             background-color: white;
         }
-        
+
         .project-categories {
             margin-bottom: 40px;
             text-align: center;
         }
-        
+
         .category-title {
             font-size: 24px;
             color: var(--purple);
             margin: 30px 0 20px;
         }
-        
+
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 30px;
         }
-        
+
         .project-card {
             background: white;
             border-radius: 10px;
@@ -177,12 +178,12 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
         }
-        
+
         .project-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
-        
+
         .project-img {
             height: 200px;
             background-color: var(--light-gray);
@@ -190,27 +191,27 @@
             align-items: center;
             justify-content: center;
         }
-        
+
         .project-content {
             padding: 20px;
         }
-        
+
         .project-content h3 {
             color: var(--purple);
             margin-bottom: 10px;
         }
-        
+
         /* Team Section */
         .team {
             background-color: var(--light-gray);
         }
-        
+
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 30px;
         }
-        
+
         .team-member {
             background: white;
             border-radius: 10px;
@@ -220,11 +221,11 @@
             padding: 20px;
             transition: transform 0.3s;
         }
-        
+
         .team-member:hover {
             transform: translateY(-5px);
         }
-        
+
         .team-member-img {
             width: 120px;
             height: 120px;
@@ -234,24 +235,31 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            overflow: hidden;
         }
-        
+
+        .team-member-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         .team-member h3 {
             color: var(--black);
             margin-bottom: 5px;
         }
-        
+
         .team-member p {
             color: var(--purple);
             font-weight: 500;
         }
-        
+
         /* Awards Section */
         .awards {
             background-color: white;
             text-align: center;
         }
-        
+
         .award-item {
             margin-bottom: 20px;
             padding: 20px;
@@ -259,17 +267,17 @@
             border-radius: 10px;
             display: inline-block;
         }
-        
+
         .award-item h3 {
             color: var(--blue);
             margin-bottom: 10px;
         }
-        
+
         /* FAQ Section */
         .faq {
             background-color: var(--light-gray);
         }
-        
+
         .faq-item {
             margin-bottom: 20px;
             background: white;
@@ -277,7 +285,7 @@
             padding: 20px;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
         }
-        
+
         .faq-question {
             font-weight: 600;
             color: var(--purple);
@@ -287,108 +295,71 @@
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .faq-answer {
             color: var(--black);
             padding-top: 10px;
         }
-        
+
         /* Footer */
         footer {
             background-color: var(--black);
             color: white;
             padding: 60px 0 20px;
         }
-        
+
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 40px;
             margin-bottom: 40px;
         }
-        
+
         .footer-column h3 {
             color: white;
             margin-bottom: 20px;
             font-size: 18px;
         }
-        
+
         .footer-column ul {
             list-style: none;
         }
-        
+
         .footer-column ul li {
             margin-bottom: 10px;
         }
-        
+
         .footer-column ul li a {
             color: #ccc;
             text-decoration: none;
             transition: color 0.3s;
         }
-        
+
         .footer-column ul li a:hover {
             color: var(--blue);
         }
-        
+
         .social-icons {
             display: flex;
             gap: 15px;
         }
-        
+
         .social-icons a {
             color: white;
             font-size: 20px;
             transition: color 0.3s;
         }
-        
+
         .social-icons a:hover {
             color: var(--blue);
         }
-        
+
         .copyright {
             text-align: center;
             padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: #aaa;
             font-size: 14px;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-            }
-            
-            .logo-container {
-                margin-bottom: 15px;
-            }
-            
-            nav ul {
-                margin-top: 20px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            nav ul li {
-                margin: 5px 10px;
-            }
-            
-            .hero h1 {
-                font-size: 36px;
-            }
-            
-            .hero p {
-                font-size: 18px;
-            }
-            
-            section {
-                padding: 60px 0;
-            }
-            
-            .section-title h2 {
-                font-size: 28px;
-            }
         }
 
         /* Button Styles */
@@ -404,20 +375,57 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
-        
+
         .btn:hover {
             background-color: var(--accent-primary);
         }
-        
+
         .btn-outline {
             background-color: transparent;
             border: 2px solid var(--accent-secondary);
             color: var(--accent-secondary);
         }
-        
+
         .btn-outline:hover {
             background-color: var(--accent-secondary);
             color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+
+            .logo-container {
+                margin-bottom: 15px;
+            }
+
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 5px 10px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .section-title h2 {
+                font-size: 28px;
+            }
         }
     </style>
 </head>
@@ -431,7 +439,7 @@
                     <div class="company-logo">
                         <img src="images/logo.png" alt="Strylon Studios Logo" />
                     </div>
-                    <span class="logo-text">Strylon <span>Studios</span></span>
+                    <span class="logo-text"> <span></span></span>
                 </a>
             </div>
             <nav>
@@ -590,10 +598,7 @@
                 <!-- Team Member 1 -->
                 <div class="team-member">
                     <div class="team-member-img">
-                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="var(--accent-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
+                        <img src="./images_pp/ratnesh.jpg" alt="Ratnesh HS" />
                     </div>
                     <h3>Ratnesh HS</h3>
                     <p>3D & VR Developer</p>
@@ -602,97 +607,73 @@
                 <!-- Team Member 2 -->
                 <div class="team-member">
                     <div class="team-member-img">
-                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
+                        <img src="./images_pp/ratnesh.jpg" alt="Ratnesh HS" />
                     </div>
-                    <h3>Harini V</h3>
-                    <p>VR Developer</p>
+                    <h3>krithik ragav </h3>
+                    <p>3D,VR & AI Developer</p>
                 </div>
                 
                 <!-- Team Member 3 -->
                 <div class="team-member">
                     <div class="team-member-img">
-                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="var(--accent-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
+                        <img src="./images_pp/ratnesh.jpg" alt="Ratnesh HS" />
                     </div>
-                    <h3>Sakthisree</h3>
-                    <p>3D & VR Developer</p>
+                    <h3>Sakthisree K</h3>
+                    <p>AI & NLP Developer</p>
                 </div>
                 
                 <!-- Team Member 4 -->
                 <div class="team-member">
                     <div class="team-member-img">
-                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
+                        <img src="./images_pp/ratnesh.jpg" alt="Ratnesh HS" />
                     </div>
-                    <h3>Krithik Ragav</h3>
-                    <p>3D, VR & AI Developer</p>
+                    <h3>mohamed Suhail Y </h3>
+                    <p>3D & VR Developer</p>
                 </div>
                 
                 <!-- Team Member 5 -->
                 <div class="team-member">
                     <div class="team-member-img">
-                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="var(--accent-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
+                        <img src="./images_pp/ratnesh.jpg" alt="Ratnesh HS" />
                     </div>
-                    <h3>Suhail Y</h3>
-                    <p>VR Developer</p>
+                    <h3>Saranayan M</h3>
+                    <p>AI and NLP Developer</p>
                 </div>
                 
                 <!-- Team Member 6 -->
                 <div class="team-member">
                     <div class="team-member-img">
-                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
+                        <img src="./images_pp/ratnesh.jpg" alt="Ratnesh HS" />
                     </div>
-                    <h3>Bramarambika</h3>
-                    <p>VR Developer</p>
+                    <h3>Harini V</h3>
+                    <p>3D & XR Developer</p>
                 </div>
                 
                 <!-- Team Member 7 (New) -->
                 <div class="team-member">
                     <div class="team-member-img">
-                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="var(--accent-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
+                        <img src="./images_pp/ratnesh.jpg" alt="Ratnesh HS" />
                     </div>
-                    <h3>Saranayan</h3>
+                    <h3>Bramarambika</h3>
                     <p>AI Developer</p>
                 </div>
                 
                 <!-- Team Member 8 (New) -->
                 <div class="team-member">
                     <div class="team-member-img">
-                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
+                        <img src="./images_pp/ratnesh.jpg" alt="Ratnesh HS" />
                     </div>
                     <h3>Tharunkumar RK</h3>
-                    <p>Developer</p>
+                    <p>3D & XR Developer</p>
                 </div>
                 
                 <!-- Team Member 9 (New) -->
                 <div class="team-member">
                     <div class="team-member-img">
-                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="var(--accent-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
+                        <img src="./images_pp/ratnesh.jpg" alt="Ratnesh HS" />
                     </div>
-                    <h3>Aburoobha</h3>
-                    <p>Developer</p>
+                    <h3>Aburoobha A</h3>
+                    <p>AI and NLP Developer</p>
                 </div>
             </div>
         </div>
@@ -779,8 +760,8 @@
                 <div class="footer-column">
                     <h3>Contact</h3>
                     <ul>
-                        <li>Email: info@strylonstudios.com</li>
-                        <li>Phone: +1 (555) 123-4567</li>
+                        <li>Email: contact@strylonstudios.com</li>
+                        <li>Phone: +91 7305328064</li>
                         <li>Address: Tech Park, Innovation Avenue, Digital City</li>
                     </ul>
                 </div>
