@@ -60,13 +60,14 @@
         }
         
         .company-logo {
-            margin-right: 15px;
             height: 60px;
+            margin-right: 15px;
         }
         
         .company-logo img {
             height: 100%;
             width: auto;
+            object-fit: contain;
         }
         
         .logo {
@@ -234,6 +235,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            overflow: hidden;
+        }
+        
+        .team-member-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
         .team-member h3 {
@@ -354,6 +362,35 @@
             font-size: 14px;
         }
         
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent-secondary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--accent-primary);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--accent-secondary);
+            color: var(--accent-secondary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--accent-secondary);
+            color: white;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .header-container {
@@ -390,35 +427,6 @@
                 font-size: 28px;
             }
         }
-
-        /* Button Styles */
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--accent-secondary);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-weight: 600;
-            text-decoration: none;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        .btn:hover {
-            background-color: var(--accent-primary);
-        }
-        
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--accent-secondary);
-            color: var(--accent-secondary);
-        }
-        
-        .btn-outline:hover {
-            background-color: var(--accent-secondary);
-            color: white;
-        }
     </style>
 </head>
 <body>
@@ -427,9 +435,8 @@
         <div class="container header-container">
             <div class="logo-container">
                 <a href="#" class="logo">
-                    <!-- Logo placeholder - replace with your actual logo -->
                     <div class="company-logo">
-                        <img src="images/logo.png" alt="Strylon Studios Logo" />
+                        <img src="./images/logo.png" alt="Strylon Studios Logo" />
                     </div>
                     <span class="logo-text">Strylon <span>Studios</span></span>
                 </a>
@@ -587,13 +594,10 @@
                 <h2>Meet Our Team</h2>
             </div>
             <div class="team-grid">
-                <!-- Team Member 1 -->
+                <!-- Team Member 1 with actual photo -->
                 <div class="team-member">
                     <div class="team-member-img">
-                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="var(--accent-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
+                        <img src="./images_pp/ratnesh.jpg" alt="Ratnesh HS" />
                     </div>
                     <h3>Ratnesh HS</h3>
                     <p>3D & VR Developer</p>
@@ -659,7 +663,7 @@
                     <p>VR Developer</p>
                 </div>
                 
-                <!-- Team Member 7 (New) -->
+                <!-- Team Member 7 -->
                 <div class="team-member">
                     <div class="team-member-img">
                         <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="var(--accent-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -671,7 +675,7 @@
                     <p>AI Developer</p>
                 </div>
                 
-                <!-- Team Member 8 (New) -->
+                <!-- Team Member 8 -->
                 <div class="team-member">
                     <div class="team-member-img">
                         <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -683,7 +687,7 @@
                     <p>Developer</p>
                 </div>
                 
-                <!-- Team Member 9 (New) -->
+                <!-- Team Member 9 -->
                 <div class="team-member">
                     <div class="team-member-img">
                         <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="var(--accent-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -751,61 +755,15 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
+    <!-- Contact Section (Added) -->
+    <section id="contact" style="background-color: white; padding: 80px 0;">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Strylon Studios</h3>
-                    <p>Innovative solutions in game development, AI-based animation, and immersive experiences.</p>
-                    <div class="social-icons" style="margin-top: 20px;">
-                        <a href="#"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
-                        <a href="#"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
-                        <a href="#"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
-                    </div>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#projects">Our Projects</a></li>
-                        <li><a href="#team">Our Team</a></li>
-                        <li><a href="#awards">Awards</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Contact</h3>
-                    <ul>
-                        <li>Email: info@strylonstudios.com</li>
-                        <li>Phone: +1 (555) 123-4567</li>
-                        <li>Address: Tech Park, Innovation Avenue, Digital City</li>
-                    </ul>
-                </div>
+            <div class="section-title">
+                <h2>Get In Touch</h2>
             </div>
-            
-            <div class="copyright">
-                <p>© 2025 Strylon Studios. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Simple FAQ toggle functionality
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const isOpen = answer.style.display === 'block';
-                
-                answer.style.display = isOpen ? 'none' : 'block';
-                question.querySelector('span').textContent = isOpen ? '+' : '-';
-            });
-            
-            // Hide answers by default
-            question.nextElementSibling.style.display = 'none';
-        });
-    </script>
-</body>
-</html>
+            <div style="max-width: 600px; margin: 0 auto;">
+                <form style="display: grid; gap: 20px;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div>
+                            <label for="name" style="display: block; margin-bottom: 8px; font-weight: 500;">Name</label>
+                            <input type="text" id="name" style="width: 100%; padding: 12px; border-radius: 5px; border: 1px solid #ddd;" placeholder="Your Name">
