@@ -4,205 +4,1251 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Member Profile</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@600&display=swap"
+    <title>Ratnesh | Game Developer & AR/VR Specialist | Strylon Studios</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;400;600&display=swap"
         rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <style>
         :root {
             --primary-color: #9b51e0;
             --secondary-color: #00aaff;
-            --background-color: #1a1a1a;
-            --card-background: #2a2a2a;
+            --accent-color: #ff7e5f;
+            --background-color: #121212;
+            --card-background: #1e1e1e;
             --text-color: #f5f5f5;
+            --text-secondary: #c7c7c7;
+            --grid-gap: 20px;
+            --card-radius: 15px;
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
             background-color: var(--background-color);
             color: var(--text-color);
             font-family: 'Rajdhani', sans-serif;
+            line-height: 1.6;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        .header {
+        .container {
             width: 100%;
-            display: flex;
-            align-items: center;
-            padding: 15px 20px;
-            background-color: var(--card-background);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        .header img {
-            height: 50px;
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            transition: all var(--transition-speed);
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar.scrolled {
+            padding: 5px 0;
+            background-color: rgba(26, 26, 26, 0.98);
+        }
+
+        .navbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            height: 40px;
             margin-right: 15px;
         }
 
-        .profile-container {
+        .navbar-brand h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .navbar-menu {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .navbar-menu a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 5px 10px;
+            transition: all var(--transition-speed);
+            position: relative;
+        }
+
+        .navbar-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary-color);
+            transition: width var(--transition-speed);
+        }
+
+        .navbar-menu a:hover {
+            color: var(--secondary-color);
+        }
+
+        .navbar-menu a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(42, 42, 42, 0.8)), url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            padding: 100px 0;
+            margin-top: 60px;
+        }
+
+        .hero-content {
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 40px 20px;
-            width: 100%;
-        }
-
-        .profile-card {
-            background-color: var(--card-background);
-            padding: 25px;
-            border-radius: 10px;
             text-align: center;
-            width: 90%;
-            max-width: 500px;
-            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+            z-index: 1;
         }
 
-        .profile-card img {
-            width: 100%;
-            max-width: 250px;
-            height: auto;
-            border-radius: 20px;
-            margin-bottom: 15px;
+        .profile-img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary-color);
+            box-shadow: 0 0 20px rgba(155, 81, 224, 0.5);
+            margin-bottom: 30px;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
         }
 
-        .profile-card h2 {
+        .profile-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(155, 81, 224, 0.8);
+        }
+
+        .hero-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 10px;
             color: var(--primary-color);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: var(--secondary-color);
+        }
+
+        .hero-text {
+            max-width: 700px;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all var(--transition-speed);
+            border: none;
+            cursor: pointer;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            box-shadow: 0 5px 15px rgba(155, 81, 224, 0.4);
+        }
+
+        .btn-primary:hover {
+            background-color: #8333d1;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(155, 81, 224, 0.6);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--secondary-color);
+            border: 2px solid var(--secondary-color);
+            box-shadow: 0 5px 15px rgba(0, 170, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 170, 255, 0.4);
         }
 
         .social-links {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 15px;
+            gap: 15px;
+            margin-top: 30px;
         }
 
-        .social-links a {
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--card-background);
+            color: var(--text-color);
+            font-size: 1.2rem;
+            transition: all var(--transition-speed);
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        /* About Section */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--grid-gap);
+            align-items: center;
+        }
+
+        .about-text {
+            padding: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .stat-card {
+            background-color: var(--card-background);
+            padding: 20px;
+            border-radius: var(--card-radius);
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform var(--transition-speed);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-title {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        /* Skills Section */
+        .skills-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: var(--grid-gap);
+        }
+
+        .skill-card {
+            background-color: var(--card-background);
+            padding: 25px;
+            border-radius: var(--card-radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all var(--transition-speed);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+            transition: width var(--transition-speed);
+        }
+
+        .skill-card:hover::before {
+            width: 10px;
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .skill-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .skill-description {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--grid-gap);
+        }
+
+        .project-card {
+            background-color: var(--card-background);
+            border-radius: var(--card-radius);
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all var(--transition-speed);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .project-tag {
+            padding: 5px 10px;
+            background-color: rgba(155, 81, 224, 0.2);
+            color: var(--primary-color);
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .project-link {
             color: var(--secondary-color);
             text-decoration: none;
-            font-size: 1.1em;
-            padding: 8px 12px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 5px;
-            transition: 0.3s;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all var(--transition-speed);
         }
 
-        .social-links a:hover {
-            background: var(--primary-color);
+        .project-link:hover {
+            color: var(--primary-color);
         }
 
-        .back-button {
-            display: inline-block;
-            margin-top: 20px;
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 12px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: 0.3s;
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--grid-gap);
         }
 
-        .back-button:hover {
-            background-color: var(--secondary-color);
-        }
-
-        .footer {
-            text-align: center;
-            padding: 15px;
+        .contact-info {
             background-color: var(--card-background);
-            width: 100%;
-            margin-top: 20px;
+            padding: 30px;
+            border-radius: var(--card-radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .footer img {
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(155, 81, 224, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .contact-text {
+            flex: 1;
+        }
+
+        .contact-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+        }
+
+        .contact-value {
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+
+        .contact-value a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: all var(--transition-speed);
+        }
+
+        .contact-value a:hover {
+            color: var(--primary-color);
+        }
+
+        .contact-form {
+            background-color: var(--card-background);
+            padding: 30px;
+            border-radius: var(--card-radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        .form-control {
             width: 100%;
-            max-width: 150px;
-            height: auto;
+            padding: 12px 15px;
+            border: 1px solid #333;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+            color: var(--text-color);
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+            transition: all var(--transition-speed);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(155, 81, 224, 0.3);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--card-background);
+            padding: 40px 0 20px;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color), var(--accent-color));
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
             margin-bottom: 10px;
         }
 
-        @media (max-width: 600px) {
-            .header {
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all var(--transition-speed);
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .footer-logo h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all var(--transition-speed);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 99;
+            text-decoration: none;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .fade-in.delayed {
+            animation-delay: 0.3s;
+        }
+
+        /* Media Queries */
+        @media (max-width: 992px) {
+            .about-content, 
+            .contact-content,
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .navbar-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--card-background);
                 flex-direction: column;
-                text-align: center;
+                align-items: center;
+                padding: 20px 0;
+                transform: translateY(-150%);
+                transition: transform var(--transition-speed);
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            }
+
+            .navbar-menu.active {
+                transform: translateY(0);
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar-brand h1 {
+                font-size: 1.2rem;
+            }
+
+            .navbar-brand img {
+                height: 30px;
+            }
+
+            .profile-img {
+                width: 200px;
+                height: 200px;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .section {
+                padding: 60px 0;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="header">
-        <img src="logo.png" alt="Company Logo">
-        <h1>Strylon Studios</h1>
-    </div>
-
-    <div class="profile-container">
-        <div class="profile-card">
-            <img src="ratnesh.jpg" alt="Team Member">
-            <h2 id="name"></h2>
-            <p><strong>Designation:</strong> <span id="designation"></span></p>
-            <p><strong>Bio:</strong> <span id="bio"></span></p>
-            <p><strong>Skills:</strong> <span id="skills"></span></p>
-            <p><strong>Projects:</strong> <span id="projects"></span></p>
-            <div class="contact-info">
-                <p><strong>Phone:</strong> <span id="phone"></span></p>
-                <p><strong>Email:</strong> <span id="email"></span></p>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <div class="navbar-brand">
+                <img src="/api/placeholder/40/40" alt="Strylon Studios Logo">
+                <h1>Strylon Studios</h1>
             </div>
-            <div class="social-links" id="social-links"></div>
-            <a href="index.html" class="back-button">Back to Team</a>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
-    </div>
+    </nav>
 
-    <div class="footer">
-        <img src="logo.png" alt="Company Logo">
-        <p>&copy; 2025 Strylon Studios. All rights reserved.</p>
-    </div>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <img src="/api/placeholder/250/250" alt="Ratnesh - CEO & Founder" class="profile-img fade-in">
+            <h1 class="hero-title fade-in">Ratnesh</h1>
+            <h2 class="hero-subtitle fade-in">CEO & Founder of Strylon Studios</h2>
+            <p class="hero-text fade-in">Passionate game developer and Smart India Hackathon winner specializing in AR/VR experiences and innovative tech solutions. With expertise in Unity, C#, AI/NLP integration, and Linux systems, I create immersive interactive applications that push the boundaries of what's possible.</p>
+            <div class="hero-cta fade-in">
+                <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                <a href="#projects" class="btn btn-secondary">View Projects</a>
+            </div>
+            <div class="social-links fade-in delayed">
+                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/hsratneshsci" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/eihsen2612/" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+    </section>
 
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>As the CEO and founder of Strylon Studios, I've dedicated my career to creating cutting-edge game development and AR/VR experiences. My journey in the tech world began with a passion for interactive storytelling and a vision to bridge the gap between virtual worlds and reality.</p>
+                    <p>With a strong foundation in Unity and C# development, I've successfully led multiple projects from concept to completion, including Delphi TVS, Yogam, AR Alphabet, AR Medical, and Photobooth. My team and I focus on creating memorable user experiences and pushing technological boundaries.</p>
+                    <p>My expertise in artificial intelligence and NLP has allowed me to develop intelligent systems including offline natural language processing, speech-to-text, and text-to-speech for character interaction within our applications. I'm also experienced with Linux systems, custom Android ROMs, and various development tools that enhance our workflow and capabilities.</p>
+                    <p>As a Smart India Hackathon winner and researcher planning to publish Live-In Lab research, I'm constantly exploring new technologies and methodologies to stay at the forefront of innovation in the gaming and immersive tech industries.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-title">Years Experience</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">20+</div>
+                        <div class="stat-title">Projects Completed</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-title">VR/AR Applications</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-title">Happy Clients</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="skills-content">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3 class="skill-title">Game Development</h3>
+                    <p class="skill-description">Expert in Unity and C# programming with TextMeshPro for text rendering, creating dynamic and performant interactive experiences across multiple platforms.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-vr-cardboard"></i>
+                    </div>
+                    <h3 class="skill-title">Virtual & Augmented Reality</h3>
+                    <p class="skill-description">Specialized in creating immersive VR applications using OpenXR and Oculus SDK for Meta Quest, and AR experiences like educational flashcards for human organs.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="skill-title">AI & Natural Language Processing</h3>
+                    <p class="skill-description">Integration of offline AI systems and NLP capabilities into applications with bot animation triggered by voice input, creating intelligent and responsive user experiences.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <h3 class="skill-title">Speech Recognition Systems</h3>
+                    <p class="skill-description">Implementation of Speech-to-Text and Text-to-Speech systems for enhanced accessibility, character interaction, and immersive user experiences.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-hand-paper"></i>
+                    </div>
+                    <h3 class="skill-title">Haptic Feedback Systems</h3>
+                    <p class="skill-description">bHaptics integration using TactSuit X40 and TactGlove for immersive tactile feedback in VR applications and games.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="skill-title">AI Behavior Systems</h3>
+                    <p class="skill-description">Development of dynamic obstacle systems with AI behaviors like pedestrian and vehicle pathfinding featuring conditional reactions.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-android"></i>
+                    </div>
+                    <h3 class="skill-title">Android & System Tools</h3>
+                    <p class="skill-description">Proficiency with Android Debug Bridge (ADB) for automation and custom ROM installation including LineageOS, Razs OS, and Pixel Experience.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-linux"></i>
+                    </div>
+                    <h3 class="skill-title">Linux Proficiency</h3>
+                    <p class="skill-description">Linux as daily driver for development workflows, optimizing processes and creating efficient development environments.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <h3 class="skill-title">QR-Based Solutions</h3>
+                    <p class="skill-description">Automated file sharing with QR code generation and ADB integration on Android/Linux setup for streamlined workflows.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3 class="skill-title">Hackathon Winner</h3>
+                    <p class="skill-description">Smart India Hackathon winner with proven ability to solve complex problems under pressure and deliver innovative solutions.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3 class="skill-title">Research & Documentation</h3>
+                    <p class="skill-description">Cryptography notes expertise and research with plans to publish Live-In Lab research. Ability to distill complex topics into concise formats.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="skill-title">Leadership & Management</h3>
+                    <p class="skill-description">Leading development teams and managing multiple projects simultaneously as founder of Strylon Studios, delivering high-quality products on time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="/api/placeholder/400/200" alt="Delphi TVS" class="project-img">
+                    <div class="project-content">
+                        <h3 class="project-title">Delphi TVS</h3>
+                        <p class="project-description">An immersive VR training platform designed for corporate clients to train employees in a safe virtual environment. Features realistic physics and detailed interactive scenarios.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Unity</span>
+                            <span class="project-tag">VR</span>
+                            <span class="project-tag">OpenXR</span>
+                            <span class="project-tag">C#</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fas fa-link"></i> View Project</a>
+                            <a href="https://github.com/hsratneshsci" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="/api/placeholder/400/200" alt="AR Medical" class="project-img">
+                    <div class="project-content">
+                        <h3 class="project-title">AR Medical</h3>
+                        <p class="project-description">Augmented reality application for medical education featuring human organ flashcards that come to life in 3D when viewed through a mobile device.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Unity</span>
+                            <span class="project-tag">AR</span>
+                            <span class="project-tag">Education</span>
+                            <span class="project-tag">Medical</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fas fa-link"></i> View Project</a>
+                            <a href="https://github.com/hsratneshsci" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="/api/placeholder/400/200" alt="Yogam" class="project-img">
+                    <div class="project-content">
+                        <h3 class="project-title">Yogam</h3>
+                        <p class="project-description">Interactive application focused on yoga and wellness, featuring voice-controlled guidance and immersive learning experiences with AI-driven feedback.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">NLP</span>
+                            <span class="project-tag">Voice Recognition</span>
+                            <span class="project-tag">AI</span>
+                            <span class="project-tag">Wellness</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fas fa-link"></i> View Project</a>
+                            <a href="https://github.com/hsratneshsci" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="/api/placeholder/400/200" alt="AR Alphabet" class="project-img">
+                    <div class="project-content">
+                        <h3 class="project-title">AR Alphabet</h3>
+                        <p class="project-description">Educational AR application that brings the alphabet to life with interactive 3D models, animations, and sound effects for each letter, enhancing early childhood learning.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Unity</span>
+                            <span class="project-tag">AR</span>
+                            <span class="project-tag">Education</span>
+                            <span class="project-tag">Children</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fas fa-link"></i> View Project</a>
+                            <a href="https://github.com/hsratneshsci" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="/api/placeholder/400/200" alt="Photobooth" class="project-img">
+                    <div class="project-content">
+                        <h3 class="project-title">Photobooth</h3>
+                        <p class="project-description">Advanced photobooth application with AR filters, custom backgrounds, and social sharing capabilities using camera vision integration for interactive features.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Computer Vision</span>
+                            <span class="project-tag">AR</span>
+                            <span class="project-tag">Camera</span>
+                            <span class="project-tag">Social</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fas fa-link"></i> View Project</a>
+                            <a href="https://github.com/hsratneshsci" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="/api/placeholder/400/200" alt="Smart India Hackathon" class="project-img">
+                    <div class="project-content">
+                        <h3 class="project-title">Smart India Hackathon Winner</h3>
+                        <p class="project-description">Award-winning project developed during the Smart India Hackathon, showcasing innovative problem-solving abilities and technical expertise under pressure.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Hackathon</span>
+                            <span class="project-tag">Innovation</span>
+                            <span class="project-tag">Award</span>
+                            <span class="project-tag">Problem Solving</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fas fa-trophy"></i> Competition Details</a>
+                            <a href="https://github.com/hsratneshsci" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <div class="contact-label">Phone</div>
+                            <div class="contact-value"><a href="tel:+917305328064">+91 7305328064</a></div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <div class="contact-label">Email</div>
+                            <div class="contact-value">
+                                <a href="mailto:hsratneshsci@gmail.com">hsratneshsci@gmail.com</a><br>
+                                <a href="mailto:ratnesh@strylonstudios.com">ratnesh@strylonstudios.com</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <div class="contact-label">Location</div>
+                            <div class="contact-value">Strylon Studios, India</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="contact-text">
+                            <div class="contact-label">Website</div>
+                            <div class="contact-value"><a href="https://github.com/hsratneshsci">github.com/hsratneshsci</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Your Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="/api/placeholder/40/40" alt="Strylon Studios Logo">
+                        <h3>Strylon Studios</h3>
+                    </div>
+                    <p>Founded in 2023, Strylon Studios is focused on creating immersive and innovative game and AR/VR experiences that push the boundaries of technology and creativity. Our projects include educational tools, VR training simulations, and interactive AR applications.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Strylon Studios. All rights reserved. | Designed by Ratnesh</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#home" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- JavaScript -->
     <script>
-        const teamMember = {
-                "name": "Ratnesh",
-                "designation": "CEO and Founder",
-                "bio": "CEO and founder of Strylon Studios, specializing in game development and AR/VR. With expertise in Unity and C#, he has worked on multiple 3D and VR projects. He is passionate about creating interactive experiences and leading innovative tech-driven solutions.",
-                "skills": [
-                    "Unity & C# Development",
-                    "Virtual Reality (VR) & Augmented Reality (AR)",
-                    "Artificial Intelligence & NLP",
-                    "OpenXR & Oculus SDK",
-                    "Game Design & Development",
-                    "Speech-to-Text & Text-to-Speech Systems"
-                ],
-                "phone": "+91 7305328064",
-                "email": "hsratneshsci@gmail.com",
-                "social": {
-                    "LinkedIn": "#",
-                    "GitHub": "https://github.com/hsratneshsci",
-                    "Portfolio": "https://github.com/hsratneshsci",
-                    "Twitter": "#",
-                    "Instagram": "https://www.instagram.com/eihsen2612/",
-                    "Facebook": "#"
+        document.addEventListener('DOMContentLoaded', function() {
+            // Menu toggle
+            const menuToggle = document.getElementById('menuToggle');
+            const navbarMenu = document.getElementById('navbarMenu');
+            
+            menuToggle.addEventListener('click', function() {
+                navbarMenu.classList.toggle('active');
+                menuToggle.innerHTML = navbarMenu.classList.contains('active') ? 
+                    '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            });
+
+            // Close menu when clicking a link
+            const navLinks = document.querySelectorAll('.navbar-menu a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navbarMenu.classList.remove('active');
+                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                });
+            });
+
+            // Navbar scroll effect
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
                 }
+            });
+
+            // Back to top button
+            const backToTopButton = document.getElementById('backToTop');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.add('active');
+                } else {
+                    backToTopButton.classList.remove('active');
+                }
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Contact form submission
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form values
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const subject = document.getElementById('subject').value;
+                    const message = document.getElementById('message').value;
+                    
+                    // Here you would typically send the form data to a server
+                    // For now, we'll just show a success message
+                    alert(`Thank you ${name}! Your message has been received. We'll get back to you soon.`);
+                    contactForm.reset();
+                });
+            }
+
+            // Animation on scroll
+            const animateOnScroll = function() {
+                const elements = document.querySelectorAll('.section-title, .skill-card, .project-card, .contact-item');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementPosition < windowHeight - 100) {
+                        element.classList.add('fade-in');
+                    }
+                });
             };
 
-        document.addEventListener("DOMContentLoaded", () => {
-            document.getElementById("name").innerText = teamMember.name;
-            document.getElementById("designation").innerText = teamMember.designation;
-            document.getElementById("bio").innerText = teamMember.bio;
-            document.getElementById("skills").innerText = teamMember.skills;
-            document.getElementById("projects").innerText = teamMember.projects;
-            document.getElementById("phone").innerHTML = `<a href='tel:${teamMember.phone}'>${teamMember.phone}</a>`;
-            document.getElementById("email").innerHTML = `<a href='mailto:${teamMember.email}'>${teamMember.email}</a>`;
-
-            const socialLinks = document.getElementById("social-links");
-            Object.entries(teamMember.social).forEach(([platform, link]) => {
-                let anchor = document.createElement("a");
-                anchor.href = link;
-                anchor.target = "_blank";
-                anchor.innerText = platform;
-                socialLinks.appendChild(anchor);
-            });
+            // Run the animation check on load and scroll
+            window.addEventListener('load', animateOnScroll);
+            window.addEventListener('scroll', animateOnScroll);
         });
     </script>
 </body>
