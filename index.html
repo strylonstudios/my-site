@@ -31,6 +31,47 @@
             line-height: 1.6;
         }
 
+
+
+        .styled-form {
+      max-width: 700px;
+      margin: 0 auto;
+      background: var(--bg-primary);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(14, 141, 188, 0.473);
+    }
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #a00ca8;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--accent-primary);
+  outline: none;
+}
+
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -709,6 +750,45 @@
             </div>
         </div>
     </section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact" style="background-color: white; padding: 80px 0;">
+    <div class="container">
+        <div class="section-title">
+            <h2>Contact Us</h2>
+        </div>
+        <form name="strylon-contact" method="POST" data-netlify="true" class="styled-form">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" required />
+            </div>
+            <div class="form-group">
+                <label for="interest">Area of Interest</label>
+                <select name="interest" id="interest">
+                    <option value="general">General Inquiry</option>
+                    <option value="business">Business Partnership</option>
+                    <option value="job">Career Opportunities</option>
+                    <option value="product">Product Information</option>
+                    <option value="support">Technical Support</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+    </div>
+</section>
+
 
     <!-- FAQ Section -->
     <section id="faq" class="faq">
