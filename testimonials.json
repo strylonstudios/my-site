@@ -1,0 +1,23 @@
+[
+    {
+      "id": 1,
+      "name": "Alex Johnson",
+      "company": "TechCorp",
+      "text": "Strylon Studios transformed our corporate event! The AI photobooth was the highlight, and the quality was second to none.",
+      "rating": 5
+    },
+    {
+      "id": 2,
+      "name": "Sarah Miller",
+      "company": "Wedding Planner",
+      "text": "Incredible professionalism and artistic vision. They captured our clients' wedding beautifully.",
+      "rating": 5
+    },
+    {
+      "id": 3,
+      "name": "Michael Reed",
+      "company": "Event Manager",
+      "text": "Seamless integration and the digital sharing feature was worth every penny. Our guests loved it!",
+      "rating": 5
+    }
+]

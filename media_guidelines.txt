@@ -1,0 +1,52 @@
+### Media Sizing & Aspect Ratio Guidelines ###
+
+Use this guide when creating or resizing images for the Strylon Studios website. The Tailwind `object-cover` class is used everywhere, meaning images will dynamically crop to fill their containers without stretching. However, providing images near these aspect ratios will produce the best visual results.
+
+==================================================
+1. Videos
+==================================================
+File: photos/common/hero_video.mp4
+- Ideal Ratio: 16:9 (Standard Widescreen)
+- Ideal Resolution: 1920x1080
+- Note: This is a background video. Keep the file size under 10MB to ensure fast loading.
+
+==================================================
+2. Project & Gallery Images
+==================================================
+File: photos/photobooth/preview1.jpg
+- Role: Main Photobooth Hero & Wide Gallery Banner
+- Ideal Ratio: 16:9 (Widescreen)
+- Ideal Resolution: 1920x1080 or 1200x675
+
+File: photos/events/event1.jpg 
+- Role: Highlight Gallery Focus Image (Takes up 2 rows)
+- Ideal Ratio: 1:1 (Square) or 4:3 (Slightly Landscape)
+- Ideal Resolution: 1080x1080 or 1200x900
+
+File: photos/common/event1.jpg & photos/events/event_special.jpg
+- Role: Smaller Gallery Grid Items
+- Ideal Ratio: 1:1 (Square) or 4:3 (Standard Photo)
+- Ideal Resolution: 800x800 or 1200x900
+
+File: photos/project 2/project1.jpg
+- Role: Featured Project Card & Wide Gallery Bottom Strip
+- Ideal Ratio: 16:9 (Widescreen)
+- Ideal Resolution: 1920x1080
+
+==================================================
+3. Team Profiles
+==================================================
+Files: sanjay.jpg, selva.jpg, rajkumar.jpg
+- Role: Circular profile pictures in 'Our Team'
+- Ideal Ratio: 1:1 (Perfect Square)
+- Ideal Resolution: 400x400 or 500x500
+- Note: Ensure the person's face is dead-center.
+
+==================================================
+4. Client Logos
+==================================================
+Files: clients/client1.svg to client6.svg (or PNGs)
+- Role: Marquee Scroller Logo
+- Ideal Ratio: Anywhere from 1:1 to 4:1 (Rectangular / Wide)
+- Ideal Resolution: Max height 200px (e.g. 500x150)
+- Note: MUST have a transparent background. Make sure the text is visible on the dark #0B0F1A background (use white/light versions of the logos).

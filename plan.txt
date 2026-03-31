@@ -1,0 +1,35 @@
+Features You Must Implement (Checklist)
+
+Keep this as your development checklist:
+
+• Sticky Navbar
+• Smooth Scrolling
+• Scroll Animations
+• Image Gallery Popup
+• Video Background Hero Section
+• WhatsApp Floating Button
+• Contact Form
+• Mobile Responsive
+• Fast Loading
+• Instagram Feed / Reels
+• CTA Buttons everywhere
+
+Final Site Tech Stack
+    HTML
+    Tailwind CSS
+    CSS
+    JavaScript
+
+
+Final Design System
+Colors:
+    Primary Background: #0B0F1A
+    Secondary Background: #111827
+    Accent Purple: #7C3AED
+    Accent Cyan: #06B6D4
+    Text: #FFFFFF
+    Subtext: #9CA3AF
+
+Fonts:
+    Headings → Poppins
+    Body → Inter

@@ -1,0 +1,162 @@
+:root {
+    --accent: #7C3AED;
+    --accent-cyan: #06B6D4;
+    --bg: #0B0F1A;
+    --bg-secondary: #111827;
+}
+
+@keyframes scrollHorizontal {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@keyframes pulse-glow {
+    0%, 100% { opacity: 0.5; filter: blur(40px); }
+    50% { opacity: 0.8; filter: blur(60px); }
+}
+
+@keyframes slide-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-scrolling-container {
+    display: flex;
+    width: 200%;
+    animation: scrollHorizontal 30s linear infinite;
+}
+
+.animate-scrolling-container:hover {
+    animation-play-state: paused;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    z-index: 100;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.6);
+}
+
+.whatsapp-float svg {
+    width: 35px;
+    height: 35px;
+    fill: currentColor;
+}
+
+body {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Premium UI Classes */
+.glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-card {
+    background: rgba(17, 24, 39, 0.7);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.4s ease;
+}
+
+.glass-card:hover {
+    background: rgba(17, 24, 39, 0.85);
+    border-color: var(--accent);
+    box-shadow: 0 20px 40px -20px rgba(124, 58, 237, 0.3);
+    transform: translateY(-5px);
+}
+
+.glow-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.glow-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.2) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.glow-btn:hover::after {
+    opacity: 1;
+}
+
+.bento-grid-item {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bento-grid-item:hover {
+    z-index: 10;
+    box-shadow: 0 0 50px rgba(124, 58, 237, 0.2);
+}
+
+.bg-mesh {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.mesh-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.15;
+    animation: pulse-glow 10s infinite alternate;
+}
+
+/* Text Enhancements */
+.text-balance {
+    text-wrap: balance;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #FFF 0%, rgba(255,255,255,0.7) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.btn-hover-fx {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-hover-fx:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}

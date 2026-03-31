@@ -1,0 +1,25 @@
+{
+    "gallery": [
+      {
+        "id": 1,
+        "title": "Corporate Event 2024",
+        "category": "photobooth",
+        "image": "photos/events/event1.jpg",
+        "description": "High-energy corporate gathering with AI Photobooth."
+      },
+      {
+        "id": 2,
+        "title": "Wedding Gala",
+        "category": "weddings",
+        "image": "photos/common/wedding1.jpg",
+        "description": "Elegant reception with premium photography."
+      },
+      {
+        "id": 3,
+        "title": "Project Alpha",
+        "category": "project 2",
+        "image": "photos/project 2/project_alpha.jpg",
+        "description": "Special project showcase."
+      }
+    ]
+}
