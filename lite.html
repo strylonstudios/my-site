@@ -4,6 +4,11 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
     <title>Strylon Studios | Mobile Showcase</title>
+    <!-- Open Graph / WhatsApp Previews -->
+    <meta property="og:title" content="Strylon Studios | Interactive Event Experiences" />
+    <meta property="og:description" content="Immersive AR/VR, Games & AI Photobooths for your events. Tap to view our showcase and connect." />
+    <meta property="og:image" content="https://strylonstudios.com/photos/photobooth/hero.jpg" />
+    <meta property="og:type" content="website" />
     <!-- Favicon -->
     <link rel="icon" href="photos/common/logo.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -41,6 +46,14 @@
         
         .tab-btn.active { background-color: #7C3AED; color: white; box-shadow: 0 0 15px rgba(124, 58, 237, 0.4); }
         
+        /* Entrance Animations */
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-in-up { animation: fadeInUp 0.6s ease-out forwards; opacity: 0; }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+
         /* Hide scrollbar for clean app feel */
         ::-webkit-scrollbar { width: 0px; background: transparent; }
     </style>
@@ -54,7 +67,7 @@
     <main class="py-8 px-5 max-w-[420px] mx-auto space-y-8 min-h-screen flex flex-col relative z-10">
         
         <!-- App Header / Logo -->
-        <div class="flex flex-col items-center text-center space-y-4 pt-4">
+        <div class="flex flex-col items-center text-center space-y-4 pt-4 animate-fade-in-up">
             <div class="p-4 bg-slate-900/50 rounded-[2rem] border border-white/10 shadow-2xl backdrop-blur-xl">
                 <img src="icons/logo.png" alt="Strylon Studios" class="h-14 w-auto drop-shadow-[0_0_15px_rgba(124,58,237,0.5)]">
             </div>
@@ -65,7 +78,7 @@
         </div>
 
         <!-- Action Buttons (Linktree Style) -->
-        <div class="flex flex-col gap-3 w-full">
+        <div class="flex flex-col gap-3 w-full animate-fade-in-up delay-100">
             <a href="index.html" class="w-full py-4 bg-gradient-to-r from-accent to-accentCyan text-white font-bold text-sm rounded-2xl flex items-center justify-center gap-2 shadow-lg glow-primary active:scale-95 transition-transform">
                 <span class="material-symbols-outlined text-xl">language</span>
                 Visit Main Website
@@ -93,7 +106,7 @@
         </div>
 
         <!-- Portrait Mobile Slideshow -->
-        <div class="w-full aspect-[4/5] rounded-[2rem] overflow-hidden glass-card relative shadow-2xl border border-white/10">
+        <div class="w-full aspect-[4/5] rounded-[2rem] overflow-hidden glass-card relative shadow-2xl border border-white/10 animate-fade-in-up delay-200">
             <div class="absolute inset-0 z-0 bg-slate-950">
                 <img src="photos/photobooth/hero.jpg" alt="Showcase" class="slide-1 absolute inset-0 w-full h-full object-cover" />
                 <img src="photos/project 2/20250630_120239.jpg" alt="Interactive Event" class="slide-2 absolute inset-0 w-full h-full object-cover opacity-0" />
@@ -108,7 +121,7 @@
         </div>
 
         <!-- Featured Work / Gallery Tabs -->
-        <section class="space-y-4 pt-4">
+        <section class="space-y-4 pt-4 animate-fade-in-up delay-300">
             <h2 class="font-['Space_Grotesk'] text-lg font-bold tracking-tight text-white text-center">Our Work</h2>
             
             <div class="flex bg-slate-900/80 p-1 rounded-xl border border-white/5 w-full">
@@ -123,19 +136,19 @@
             <!-- Photobooth Grid -->
             <div id="content-photobooth" class="grid grid-cols-2 gap-3 transition-all duration-300">
                 <a href="#" class="gallery-trigger group block relative aspect-[4/5] rounded-xl overflow-hidden glass-card border border-white/10 shadow-lg active:scale-95 transition-transform">
-                    <img src="photos/photobooth/sw.jpg" alt="WhatsApp Instant Sharing" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <img src="photos/photobooth/sw.jpg" alt="WhatsApp Instant Sharing" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 to-transparent p-3 pt-8 text-[10px] font-bold text-center text-white">WhatsApp Sharing</div>
                 </a>
                 <a href="#" class="gallery-trigger group block relative aspect-[4/5] rounded-xl overflow-hidden glass-card border border-white/10 shadow-lg active:scale-95 transition-transform">
-                    <img src="photos/photobooth/sss.jpg" alt="AI Avatars" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <img src="photos/photobooth/sss.jpg" alt="AI Avatars" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 to-transparent p-3 pt-8 text-[10px] font-bold text-center text-white">AI Avatars</div>
                 </a>
                 <a href="#" class="gallery-trigger group block relative aspect-[4/5] rounded-xl overflow-hidden glass-card border border-white/10 shadow-lg active:scale-95 transition-transform">
-                    <img src="photos/photobooth/ss.png" alt="Kiosk Setup" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <img src="photos/photobooth/ss.png" alt="Kiosk Setup" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 to-transparent p-3 pt-8 text-[10px] font-bold text-center text-white">Kiosk Setup</div>
                 </a>
                 <a href="#" class="gallery-trigger group block relative aspect-[4/5] rounded-xl overflow-hidden glass-card border border-white/10 shadow-lg active:scale-95 transition-transform">
-                    <img src="photos/photobooth/ss2.jpg" alt="Premium Setup" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <img src="photos/photobooth/ss2.jpg" alt="Premium Setup" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 to-transparent p-3 pt-8 text-[10px] font-bold text-center text-white">Premium Setup</div>
                 </a>
             </div>
@@ -143,26 +156,26 @@
             <!-- Games Grid -->
             <div id="content-games" class="grid grid-cols-2 gap-3 hidden transition-all duration-300">
                 <a href="#" class="gallery-trigger group block relative aspect-[4/5] rounded-xl overflow-hidden glass-card border border-white/10 shadow-lg active:scale-95 transition-transform">
-                    <img src="photos/project 2/20250412_113911.jpg" alt="Funny Office Game" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <img src="photos/project 2/20250412_113911.jpg" alt="Funny Office Game" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 to-transparent p-3 pt-8 text-[10px] font-bold text-center text-white">Office Games</div>
                 </a>
                 <a href="#" class="gallery-trigger group block relative aspect-[4/5] rounded-xl overflow-hidden glass-card border border-white/10 shadow-lg active:scale-95 transition-transform">
-                    <img src="photos/project 2/20250630_120239.jpg" alt="Exhibition" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <img src="photos/project 2/20250630_120239.jpg" alt="Exhibition" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 to-transparent p-3 pt-8 text-[10px] font-bold text-center text-white">Exhibition Display</div>
                 </a>
                 <a href="#" class="gallery-trigger group block relative aspect-[4/5] rounded-xl overflow-hidden glass-card border border-white/10 shadow-lg active:scale-95 transition-transform">
-                    <img src="photos/project 2/IMG-20250304-WA0033.jpg" alt="Custom Game" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <img src="photos/project 2/IMG-20250304-WA0033.jpg" alt="Custom Game" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 to-transparent p-3 pt-8 text-[10px] font-bold text-center text-white">Custom Dev</div>
                 </a>
                 <a href="#" class="gallery-trigger group block relative aspect-[4/5] rounded-xl overflow-hidden glass-card border border-white/10 shadow-lg active:scale-95 transition-transform">
-                    <img src="photos/project 2/IMG-20250902-WA0008.jpg" alt="Kiosk" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <img src="photos/project 2/IMG-20250902-WA0008.jpg" alt="Kiosk" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 to-transparent p-3 pt-8 text-[10px] font-bold text-center text-white">Interactive Kiosk</div>
                 </a>
             </div>
         </section>
 
         <!-- Compact Contact Form -->
-        <section class="w-full bg-slate-900/60 p-6 rounded-3xl border border-white/5 shadow-xl mt-8">
+        <section class="w-full bg-slate-900/60 p-6 rounded-3xl border border-white/5 shadow-xl mt-8 animate-fade-in-up delay-400">
             <h3 class="font-['Space_Grotesk'] text-lg font-bold text-center mb-4">Quick Enquiry</h3>
             <form action="#" method="POST" class="space-y-3">
                 <input type="text" placeholder="Name" required class="w-full bg-slate-950 border border-white/10 text-white rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-accent">
